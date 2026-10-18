@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tip the Bands · Dante's Inferno</title>
+<meta name="description" content="Tip the bands at Dante's Inferno: Sun Over Static, Flood Theory, My Final Message.">
+<meta name="theme-color" content="#1a0f12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #4a1f2e;
+    --cream: #fff4e3;
+    --pink: #ff3d8b;
+    --hot: #e8125c;
+    --red: #c4161c;
+    --gold: #ffc93c;
+    --ink: #1a0f12;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background-color: var(--ink);
+    background-image:
+      radial-gradient(circle at 50% 30%, rgba(255,255,255,.10), transparent 60%),
+      radial-gradient(circle, rgba(255,255,255,.22) 0 3px, transparent 4px);
+    background-size: auto, 14px 14px;
+    color: var(--cream);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  .leopard {
+    height: 28px;
+    background: url("leopard.jpg") repeat-x center / auto 100%;
+    flex: none;
+  }
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 28px 16px 36px;
+    text-align: center;
+  }
+  .sign {
+    background: linear-gradient(180deg, #fff8ec 0%, #ffd6e7 100%);
+    color: var(--plum);
+    border: 4px solid var(--red);
+    border-radius: 22px;
+    padding: 22px 16px 18px;
+    box-shadow:
+      0 0 0 4px var(--gold),
+      0 0 24px rgba(255, 61, 139, .55);
+    position: relative;
+  }
+  .sign::before {
+    /* marquee bulbs */
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 16px;
+    border: 3px dotted var(--gold);
+    pointer-events: none;
+  }
+  .venue {
+    font-family: "Rye", Georgia, serif;
+    color: var(--red);
+    font-size: 15px;
+    letter-spacing: .08em;
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Rye", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(34px, 11vw, 46px);
+    line-height: 1.05;
+    margin: 0;
+    color: var(--plum);
+  }
+  h1 .star { color: var(--hot); }
+  .date {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--red);
+    color: var(--gold);
+    font-family: "Rye", Georgia, serif;
+    padding: 4px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  .lineup {
+    margin: 22px 0 6px;
+    font-family: "Rye", Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--cream);
+  }
+  .lineup span { color: var(--pink); }
+  .pitch {
+    margin: 4px 0 22px;
+    font-size: 16px;
+    line-height: 1.45;
+    color: #f3dccb;
+  }
+  .pitch strong { color: var(--gold); font-weight: 700; }
+  .buttons { display: grid; gap: 14px; }
+  .pay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #fff;
+    border: 3px solid rgba(255,255,255,.9);
+    box-shadow: 0 6px 0 rgba(0,0,0,.45);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .pay:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.45); }
+  .pay small { display: block; font-size: 13px; font-weight: 600; opacity: .9; }
+  .pay .label { text-align: left; }
+  .pay svg { width: 30px; height: 30px; flex: none; }
+  .venmo  { background: #008cff; }
+  .cashapp{ background: #00c244; }
+  .paypal { background: #003087; }
+  .pay[hidden] { display: none; }
+  .thanks {
+    margin-top: 26px;
+    font-family: "Rye", Georgia, serif;
+    font-size: 19px;
+    color: var(--pink);
+  }
+  .fine {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #c9b3a6;
+  }
+</style>
+</head>
+<body>
+<div class="leopard" aria-hidden="true"></div>
+<main>
+  <div class="sign">
+    <p class="venue">Dante's Inferno</p>
+    <h1>Tip the <span class="star">★</span> Bands</h1>
+    <div class="date">Thanks for coming · Oct. 17</div>
+  </div>
+
+  <p class="lineup">
+    Sun Over Static <span>+</span> Special Guest<br>
+    Flood <span>★</span> Theory<br>
+    My Final Message
+  </p>
+
+  <p class="pitch">Had a good time at the show?<br>The bands played for tips. If you didn't get a chance to chip in that night, you can do it here. <strong>Any amount helps!</strong></p>
+
+  <div class="buttons">
+    <a class="pay venmo" id="venmo" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M19.5 3c.7 1.2 1 2.4 1 3.9 0 4.9-4.2 11.2-7.6 15.6H5.1L2 4.2l6.8-.6 1.6 13.2c1.5-2.5 3.4-6.4 3.4-9 0-1.5-.3-2.5-.7-3.3L19.5 3z"/></svg>
+      <span class="label">Venmo<small id="venmo-h"></small></span>
+    </a>
+    <a class="pay cashapp" id="cashapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M13.6 7.9c1.3 0 2.5.5 3.3 1.2l1.4-1.5c-1-.9-2.3-1.6-3.9-1.8l.3-1.6-2.3-.4-.3 1.6c-2.4.3-4 1.8-4 3.7 0 4.3 6.5 3 6.5 5.2 0 .9-1 1.6-2.6 1.6-1.4 0-2.8-.6-3.8-1.6l-1.5 1.6c1.1 1.1 2.6 1.8 4.3 2l-.3 1.7 2.3.4.3-1.8c2.6-.3 4.1-1.9 4.1-3.9 0-4.3-6.5-3.1-6.5-5.1 0-.8.9-1.3 2.4-1.3z"/></svg>
+      <span class="label">Cash App<small id="cashapp-h"></small></span>
+    </a>
+    <a class="pay paypal" id="paypal" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M7.4 21H3.9L6.8 3h6.4c3.4 0 5.4 1.8 4.9 4.9-.6 3.8-3.2 5.6-6.8 5.6H9l-1.6 7.5zm2.2-10h1.8c1.8 0 3-.8 3.3-2.7.2-1.4-.6-2.2-2.2-2.2h-2l-.9 4.9zM18.9 8.6c1.3.9 1.8 2.4 1.5 4.3-.6 3.6-3.1 5.4-6.6 5.4h-1.4l-.8 3.7H8.3l.3-1.6h1.4l.8-3.8h2.6c2.9 0 4.8-1.4 5.3-4.3.1-.6.2-1.2.2-1.7z"/></svg>
+      <span class="label">PayPal<small id="paypal-h"></small></span>
+    </a>
+  </div>
+
+  <p class="thanks">Thanks for keeping live music alive!</p>
+  <p class="fine">Every dollar goes to the bands. Thanks for coming out on Oct 17.</p>
+</main>
+<div class="leopard" aria-hidden="true"></div>
+
+<script>
+  // Payment handles: edit these. Leave one blank ("") to hide its button.
+  const HANDLES = {
+    venmo:   "",   // without the @, e.g. "Jon-Brookings"
+    cashapp: "danteosoriosilva",   // without the $
+    paypal:  ""    // the part after paypal.me/
+  };
+
+  const LINKS = {
+    venmo:   h => ["https://venmo.com/u/" + encodeURIComponent(h), "@" + h],
+    cashapp: h => ["https://cash.app/$" + encodeURIComponent(h), "$" + h],
+    paypal:  h => ["https://paypal.me/" + encodeURIComponent(h), "paypal.me/" + h]
+  };
+
+  for (const [app, raw] of Object.entries(HANDLES)) {
+    const a = document.getElementById(app);
+    const h = raw.trim().replace(/^[@$]/, "");
+    if (!h) { a.hidden = true; continue; }
+    const [href, shown] = LINKS[app](h);
+    a.href = href;
+    document.getElementById(app + "-h").textContent = shown;
+  }
+</script>
+</body>
+</html>
